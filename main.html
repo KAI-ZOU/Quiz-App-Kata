@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <title>Quiz App</title>
     <link rel="stylesheet" href="style.css">
+    <!-- We chose to divide CSS into a different file otherwise this main HTML file would get way too long -->
 </head>
 <body>
+
 
 <div class="container">
 
@@ -13,13 +15,15 @@
 
     <div class="flex-row">
 
-        <!-- SETTINGS -->
+        <!-- This is the settings panel you are immediately greeted with on the front of the page -->
         <div id="settings" class="card settings-card">
             <h2>Quiz Settings</h2>
 
             <label>Number of Questions</label>
+            <!-- Value must be less than or equal to 50 in the provided website to generate quiz questions -->
             <input id="amount" type="number" min="1" max="50">
-
+            
+             <!-- Didn't want to overload the user with more categories than necessary -->
             <label>Category</label>
             <select id="category">
                 <option value="9">General Knowledge</option>
@@ -29,6 +33,7 @@
                 <option value="17">Science: Nature</option>
             </select>
 
+            <!-- Matching difficulties with the given website  -->
             <label>Difficulty</label>
             <select id="difficulty">
                 <option value="">Any</option>
@@ -36,7 +41,8 @@
                 <option value="medium">Medium</option>
                 <option value="hard">Hard</option>
             </select>
-
+            
+            <!-- Matching Types with the given website  -->
             <label>Type</label>
             <select id="type">
                 <option value="">Any</option>
@@ -44,12 +50,16 @@
                 <option value="boolean">True / False</option>
             </select>
 
+            <!-- Personal preference as I know that not everyone likes taking test-style quizzes. 
+             I want to know whether or not I got the question wrong right after I answer it -->
             <label>Show Score During Quiz?</label>
             <select id="showDuring">
                 <option value="no">No</option>
                 <option value="yes">Yes</option>
             </select>
 
+            <!-- Personal preference as every real assessment is timed, so I gave the time pressure as
+             an option to assess knowledge fluency-->
             <label>Timer?</label>
             <select id="timerOption">
                 <option value="no">No</option>
@@ -59,11 +69,12 @@
             <button class="btn" onclick="startQuiz()">Start Quiz</button>
         </div>
 
-        <!-- AI QUIZ BUILDER -->
+        <!-- I tried to implement an AI quiz builder, it didn't really go well because I couldnt find a
+         free API key, finding a trial was really hard.  -->
         <div class="card ai-card">
             <h2>AI Quiz Builder</h2>
 
-            <textarea id="aiPrompt" placeholder="e.g., Create a quiz about World War II with 5 questions"></textarea>
+            <textarea id="aiPrompt" placeholder="e.g., Create a quiz about Direct Supply DSSI"></textarea>
 
             <button class="btn" onclick="generateAIQuiz()">
                 Generate Quiz with AI
@@ -74,7 +85,7 @@
 
     </div>
 
-    <!-- QUIZ SCREEN -->
+    <!-- This shows your quiz with the question on the screen with your timer -->
     <div id="quiz" class="card hidden">
         <h2 id="question"></h2>
         <div id="timer" class="hidden">Time left: <span id="timeLeft"></span>s</div>
@@ -82,7 +93,7 @@
         <p id="liveScore" class="hidden"></p>
     </div>
 
-    <!-- RESULTS -->
+    <!-- This shows your results after you enter all the questions -->
     <div id="results" class="card hidden">
         <h2>Results</h2>
         <p id="scoreText"></p>

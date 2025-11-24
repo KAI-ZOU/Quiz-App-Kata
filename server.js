@@ -3,18 +3,21 @@ import OpenAI from "openai";
 import dotenv from "dotenv";
 import cors from "cors";
 
+/* Note: for this section, I found https://developer.mozilla.org/en-US/docs/Web/JavaScript subsection - Web API's to be super helpful */
+
+// we load the env file and the API key
 dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Initialize OpenAI client safely
+// Intialize OpenAI client
 const client = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY
 });
 
-// ---------- ROUTE: Generate AI Quiz ----------
+
 app.post("/api/generate-quiz", async (req, res) => {
     try {
         const { prompt } = req.body;
@@ -49,7 +52,7 @@ Output ONLY valid JSON.
     }
 });
 
-// ---------- START SERVER ----------
+// starting expressjs server
 const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`Backend running on http://localhost:${PORT}`);

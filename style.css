@@ -1,3 +1,5 @@
+/* Just used basic styling in CSS for each component */
+
 body {
     font-family: Arial, sans-serif;
     background: #f4f7fa;
@@ -72,6 +74,7 @@ textarea {
     background: #e2e2e2;
 }
 
+/* Just used a flexbox to style the basic code so it looks somewhat organized*/
 .flex-row {
     display: flex;
     gap: 20px;
