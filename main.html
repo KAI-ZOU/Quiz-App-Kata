@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1 class="title">Quiz App</h1>
+
+    <div class="flex-row">
+
+        <!-- SETTINGS -->
+        <div id="settings" class="card settings-card">
+            <h2>Quiz Settings</h2>
+
+            <label>Number of Questions</label>
+            <input id="amount" type="number" min="1" max="50">
+
+            <label>Category</label>
+            <select id="category">
+                <option value="9">General Knowledge</option>
+                <option value="18">Science: Computers</option>
+                <option value="23">History</option>
+                <option value="21">Sports</option>
+                <option value="17">Science: Nature</option>
+            </select>
+
+            <label>Difficulty</label>
+            <select id="difficulty">
+                <option value="">Any</option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+
+            <label>Type</label>
+            <select id="type">
+                <option value="">Any</option>
+                <option value="multiple">Multiple Choice</option>
+                <option value="boolean">True / False</option>
+            </select>
+
+            <label>Show Score During Quiz?</label>
+            <select id="showDuring">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+
+            <label>Timer?</label>
+            <select id="timerOption">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+
+            <button class="btn" onclick="startQuiz()">Start Quiz</button>
+        </div>
+
+        <!-- AI QUIZ BUILDER -->
+        <div class="card ai-card">
+            <h2>AI Quiz Builder</h2>
+
+            <textarea id="aiPrompt" placeholder="e.g., Create a quiz about World War II with 5 questions"></textarea>
+
+            <button class="btn" onclick="generateAIQuiz()">
+                Generate Quiz with AI
+            </button>
+
+            <p id="aiStatus"></p>
+        </div>
+
+    </div>
+
+    <!-- QUIZ SCREEN -->
+    <div id="quiz" class="card hidden">
+        <h2 id="question"></h2>
+        <div id="timer" class="hidden">Time left: <span id="timeLeft"></span>s</div>
+        <div id="answers"></div>
+        <p id="liveScore" class="hidden"></p>
+    </div>
+
+    <!-- RESULTS -->
+    <div id="results" class="card hidden">
+        <h2>Results</h2>
+        <p id="scoreText"></p>
+
+        <button class="btn" onclick="window.location.reload()">Try Again</button>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
